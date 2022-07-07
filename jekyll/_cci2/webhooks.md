@@ -248,13 +248,14 @@ Pipelines are the most high-level unit of work, and contain zero or more workflo
 
 Data about the pipeline associated with the webhook event.
 
-| Field       | Always present? | Description                                                                       |
-|-------------|-----------------|-----------------------------------------------------------------------------------|
-| id          | Yes             | Globally unique ID of the pipeline                                                |
-| number      | Yes             | Number of the pipeline, which is auto-incrementing / unique per project           |
-| created\_at | Yes             | When the pipeline was created                                                     |
-| trigger     | Yes             | A map of metadata about what caused this pipeline to be created -- see below      |
-| vcs         | No              | A map of metadata about the git commit associated with this pipeline -- see below |
+| Field                 | Always present? | Description                                                                       |
+|-----------------------|-----------------|-----------------------------------------------------------------------------------|
+| id                    | Yes             | Globally unique ID of the pipeline                                                |
+| number                | Yes             | Number of the pipeline, which is auto-incrementing / unique per project           |
+| created\_at           | Yes             | When the pipeline was created                                                     |
+| trigger               | Yes             | A map of metadata about what caused this pipeline to be created -- see below      |
+| trigger_parameters    | No              | A map of metadata about the pipeline -- see below                                 |
+| vcs                   | No              | A map of metadata about the git commit associated with this pipeline -- see below |
 {: class="table table-striped"}
 
 ### Trigger
