@@ -267,11 +267,33 @@ Data about the trigger associated with the webhook event.
 | type     | yes             | How this pipeline was triggered (e.g. "webhook", "api", "schedule") |
 {: class="table table-striped"}
 
+### Trigger parameters
+{: #trigger-parameters}
+
+Data associated to the trigger. Present for pipelines associated to providers other than Github or Bitbucket. See [VCS](#vcs) below for Github and Bitbucket
+
+| Field      | Always present? | Description                                                          |
+|------------|-----------------|----------------------------------------------------------------------|
+| circleci   | yes             | A map containing trigger information. See below                      |
+| git        | no              | A map present when the pipeline is associated with a VCS provider    |
+| gitlab     | no              | A map present when the pipeline is associated with a Gitlab trigger  |
+{: class="table table-striped"}
+
+#### circleci 
+
+| Field           | Always present? | Description                                                          |
+|-----------------|-----------------|----------------------------------------------------------------------|
+| event_type      | yes             |                       |
+| trigger_type    | yes             |                       |
+| actor_id        | yes             |                       |
+| event_time      | yes             |                       |
+{: class="table table-striped"}
+
 
 ### VCS
 {: #vcs}
 
-The VCS map or its contents may not always be provided in cases where the information does not apply, such as future scenarios in which a pipeline is not associated with a git commit.
+The VCS map or its contents may not always be provided. Present for pipelines associated to Github and Bitbucket. See [trigger parameters](#trigger-parameters) above for other providers
 {: class="alert alert-info"}
 
 
